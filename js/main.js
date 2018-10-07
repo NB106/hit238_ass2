@@ -1,6 +1,7 @@
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
   todo: [],
-  completed: []
+  completed: [],
+  ongoing: []
 };
 
 // Remove and complete icons in SVG format
@@ -36,7 +37,7 @@ function addItem(value) {
 }
 
 function renderTodoList() {
-  if (!data.todo.length && !data.completed.length) return;
+  if (!data.todo.length && !data.completed.length && !data.ongoing.length) return;
 
   for (var i = 0; i < data.todo.length; i++) {
     var value = data.todo[i];
@@ -45,6 +46,11 @@ function renderTodoList() {
 
   for (var j = 0; j < data.completed.length; j++) {
     var value = data.completed[j];
+    addItemToDOM(value, true);
+  }
+
+  for (var k = 0; k < data.ongoing.length; k++) {
+    var value = data.ongoing[k];
     addItemToDOM(value, true);
   }
 }
@@ -92,6 +98,25 @@ function completeItem() {
 }
 
 function ongoingItem() {
+
+  var item = this.parentNode.parentNode;
+  var parent = item.parentNode;
+  var id = parent.id;
+  var value = item.innerText;
+
+  if (id === 'todo') {
+    data.todo.splice(data.todo.indexOf(value), 1);
+    data.ongoing.push(value);
+  } else {
+    data.ongoing.splice(data.ongoing.indexOf(value), 1);
+    data.todo.push(value);
+  }
+  dataObjectUpdated();
+
+  var target = (id === 'todo') ? document.getElementById('ongoing') : document.getElementById('todo');
+
+  parent.removeChild(item);
+  target.insertBefore(item, target.childNodes[0]);
 
 }
 
