@@ -56,6 +56,80 @@ body, button, html, input, select, textarea {
   font-weight: bold;
 }
 
+.list-cards {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 4px;
+  padding: 0 0 0 16px;
+}
+
+.todo-new-card-title-input {
+  width: 100%;
+  margin-bottom: 4px;
+  overflow: hidden;
+  word-wrap: break-word;
+  resize: none;
+  height: 23px;
+  border: none;
+  box-shadow: none;
+}
+
+.card {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+  overflow: auto;
+  padding: 6px 8px 4px;
+}
+
+.card div {
+  margin-bottom: 5px;
+}
+
+#card-edit {
+  display: none;
+  position: absolute;
+  width: 600px;
+  z-index: 15;
+  top: 50px;
+  left: 50%;
+  margin: 0px 0 0 -300px;
+  padding: 50px;
+  border-radius: 3px;
+  background-color: #ccc;
+}
+
+#card-edit div {
+  margin-bottom: 10px;
+}
+
+#card-edit label {
+  display: inline-block;
+  width: 100px;
+  margin-right: 20px;
+}
+
+#card-edit-inputs input {
+  width: 300px;
+}
+
+#card-edit-close {
+  float: right;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
 #container-main {
   display: none;
   position: fixed;
@@ -65,4 +139,62 @@ body, button, html, input, select, textarea {
   width: 100%;
   background-color: rgba(0, 0, 0, .6);
   z-index: 10;
+}
+
+.navigation-bar {
+  background: black;
+  color: white;
+  font-family: "Times New Roman", Georgia, Serif;
+  line-height: 60px;
+  padding: 10px;
+  font-size: 50px;
+  text-align: center;
+  overflow: hidden;
+  padding: 5px;
+  z-index: 10;
+}
+
+#card-edit-close img {
+  width: 20px;
+  height: 20px;
+}
+
+#card-edit-delete {
+  float: left;
+  width: 70px;
+  background-color: #7B1401;
+  color: #fff;
+}
+
+#card-edit-submit {
+  float: right;
+  width: 70px;
+  background-color: #5AA3F2;
+  color: #fff;
+}
+
+#todo-title-board {
+  padding: 10px 8px;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+  font-weight: bold;
+}
+
+#todo-canvas-board {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
