@@ -32,7 +32,7 @@
       this.listsNode.appendChild(this.lists[i].node)
     }
     this.lists[this.lists.length - 1].node.appendChild(this.titleFormNode)
-    this.lists[this.lists.length - 1].titleNode.onclick = addListTrello(this)
+    this.lists[this.lists.length - 1].titleNode.onclick = addListTodo(this)
     this.node.appendChild(this.titleNode)
     this.node.appendChild(this.listsNode)
   }
@@ -50,11 +50,11 @@
 }())
 
 //This function will called on adding the list on the board
-function addListTrello(board) {
+function addListTodo(board) {
   return function() {
-    var titleInput = document.getElementById('trello-list-title-input')
+    var titleInput = document.getElementById('todo-list-title-input')
 
-    document.getElementById('trello-list-title-submit').onclick = titleButtonClick
+    document.getElementById('todo-list-title-submit').onclick = titleButtonClick
     board.titleFormNode.style.display = 'block'
     titleInput.focus()
 
