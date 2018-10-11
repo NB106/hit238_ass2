@@ -87,10 +87,7 @@ function addListTodo(board) {
     board.titleFormNode.style.display = 'block'
     titleInput.focus()
 
-    function titleButtonClick(evt)
-
-
-    {
+    function titleButtonClick(evt) {
       evt.preventDefault()
       var title = titleInput.value.trim(),
         index = board.lists.length - 1,
